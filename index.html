@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AyuScript - Florr.io 游戏增强脚本</title>
+    <meta name="description" content="AyuScript 是一个专为 Florr.io 游戏设计的增强脚本，提供合成结果预览、目标追踪、FPS显示等功能，提升游戏体验。">
+    <meta name="keywords" content="AyuScript, Florr.io, 游戏脚本, 用户脚本, Tampermonkey, 游戏增强">
+    <meta name="author" content="LittleSwift">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="ayuscript.png">
+</head>
+
+<body>
+    <!-- 语言切换按钮 -->
+    <div class="language-switcher">
+        <button id="lang-zh" class="lang-btn active" data-lang="zh">中文</button>
+        <button id="lang-en" class="lang-btn" data-lang="en">English</button>
+    </div>
+
+    <!-- 第一部分：脚本介绍 -->
+    <section id="hero" class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <img src="ayuscript.png" alt="AyuScript Logo" class="logo">
+                <h1 class="script-name" data-zh="AyuScript" data-en="AyuScript">AyuScript</h1>
+                <p class="subtitle" data-zh="Florr.io 游戏体验增强脚本" data-en="Florr.io Game Experience Enhancement Script">
+                    Florr.io 游戏体验增强脚本</p>
+                <p class="description" data-zh="提升游戏体验，优化生活质量，让你的 Florr.io 之旅更加愉快！"
+                    data-en="Enhance your gaming experience and improve quality of life, making your Florr.io journey more enjoyable!">
+                    提升游戏体验，优化生活质量，让你的 Florr.io 之旅更加愉快！</p>
+                <a href="#installation" class="download-btn" data-zh="立即下载" data-en="Download Now">立即下载</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- 第二部分：功能展示 -->
+    <section id="features" class="features-section">
+        <div class="container">
+            <h2 class="section-title" data-zh="脚本功能" data-en="Script Features">脚本功能</h2>
+            <div class="feature-slider">
+                <div class="feature-slides">
+                    <div class="feature-slide active">
+                        <div class="feature-content">
+                            <h3 data-zh="合成结果预览" data-en="Craft Result Preview">合成结果预览</h3>
+                            <p data-zh="提前看到合成结果，避免产生心理落差。"
+                                data-en="Preview the crafting result before it's shown, avoiding disappointment.">
+                                提前看到合成结果，避免产生心理落差。</p>
+                            <div class="screenshot-placeholder">
+                                <img src="assets/screenshots/craft-result.png" alt="Craft Result Preview"
+                                    style="display: none;"
+                                    onload="this.style.display='block'; this.parentElement.querySelector('span').style.display='none';">
+                                <span data-zh="截图即将上传" data-en="Screenshot coming soon">截图即将上传</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="feature-slide">
+                        <div class="feature-content">
+                            <h3 data-zh="目标追踪" data-en="Goal Tracking">目标追踪</h3>
+                            <p data-zh="设置和追踪攒卡目标，清晰了解进度，保持游戏动力。"
+                                data-en="Set and track game goals, clearly understand progress, and maintain gaming motivation.">
+                                设置和追踪游戏目标，清晰了解进度，保持游戏动力。</p>
+                            <div class="screenshot-placeholder">
+                                <img src="assets/screenshots/goal-tracking.png" alt="Goal Tracking"
+                                    style="display: none;"
+                                    onload="this.style.display='block'; this.parentElement.querySelector('span').style.display='none';">
+                                <span data-zh="截图即将上传" data-en="Screenshot coming soon">截图即将上传</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="feature-slide">
+                        <div class="feature-content">
+                            <h3 data-zh="FPS/延迟显示" data-en="FPS/Ping Display">FPS/延迟显示</h3>
+                            <p data-zh="实时显示帧率和网络延迟，监控游戏性能，优化游戏体验。"
+                                data-en="Real-time display of frame rate and network latency, monitor game performance, and optimize gaming experience.">
+                                实时显示帧率和网络延迟，监控游戏性能，优化游戏体验。</p>
+                            <div class="screenshot-placeholder">
+                                <img src="assets/screenshots/fps-ping.png" alt="FPS/Ping Display" style="display: none;"
+                                    onload="this.style.display='block'; this.parentElement.querySelector('span').style.display='none';">
+                                <span data-zh="截图即将上传" data-en="Screenshot coming soon">截图即将上传</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slider-controls">
+                    <button class="slider-btn prev-btn" aria-label="Previous slide">‹</button>
+                    <div class="slider-dots">
+                        <span class="dot active" data-slide="0"></span>
+                        <span class="dot" data-slide="1"></span>
+                        <span class="dot" data-slide="2"></span>
+                    </div>
+                    <button class="slider-btn next-btn" aria-label="Next slide">›</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 第三部分：安装指南 -->
+    <section id="installation" class="installation-section">
+        <div class="container">
+            <h2 class="section-title" data-zh="安装指南" data-en="Installation Guide">安装指南</h2>
+            <div class="installation-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3 data-zh="安装 Tampermonkey" data-en="Install Tampermonkey">安装 Tampermonkey</h3>
+                        <p data-zh="首先需要在浏览器中安装 Tampermonkey 扩展程序。"
+                            data-en="First, you need to install the Tampermonkey extension in your browser.">首先需要在浏览器中安装
+                            Tampermonkey 扩展程序。</p>
+                        <div class="browser-links">
+                            <a href="https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo"
+                                target="_blank" class="browser-link chrome">
+                                <span data-zh="Chrome 网上应用店" data-en="Chrome Web Store">Chrome 网上应用店</span>
+                            </a>
+                            <a href="https://addons.mozilla.org/en-US/firefox/addon/tampermonkey/" target="_blank"
+                                class="browser-link firefox">
+                                <span data-zh="Firefox 附加组件" data-en="Firefox Add-ons">Firefox 附加组件</span>
+                            </a>
+                            <a href="https://microsoftedge.microsoft.com/addons/detail/tampermonkey/iikmkjmpaadaobahmlepeloendndfphd"
+                                target="_blank" class="browser-link edge">
+                                <span data-zh="Edge 扩展" data-en="Edge Extensions">Edge 扩展</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3 data-zh="下载脚本" data-en="Download Script">下载脚本</h3>
+                        <p data-zh="点击下方按钮下载 AyuScript 脚本文件。"
+                            data-en="Click the button below to download the AyuScript file.">点击下方按钮下载 AyuScript 脚本文件。
+                        </p>
+                        <a href="assets/ayuscript.user.js" class="script-download-btn" data-zh="下载 AyuScript.user.js"
+                            data-en="Download AyuScript.user.js" download>下载 AyuScript.user.js</a>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3 data-zh="安装脚本" data-en="Install Script">安装脚本</h3>
+                        <p data-zh="将下载的脚本文件拖拽到 Tampermonkey 管理页面，或者点击 Tampermonkey 图标选择" 添加新脚本"。"
+                            data-en="Drag the downloaded script file to the Tampermonkey dashboard, or click the Tampermonkey icon and select 'Create a new script'.">
+                            将下载的脚本文件拖拽到 Tampermonkey 管理页面，或者点击 Tampermonkey 图标选择"添加新脚本"。</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3 data-zh="开始游戏" data-en="Start Playing">开始游戏</h3>
+                        <p data-zh="访问 Florr.io，脚本将自动运行，享受增强的游戏体验！"
+                            data-en="Visit Florr.io, the script will run automatically, and enjoy the enhanced gaming experience!">
+                            访问 Florr.io，脚本将自动运行，享受增强的游戏体验！</p>
+                        <a href="https://florr.io" target="_blank" class="game-link" data-zh="前往 Florr.io"
+                            data-en="Go to Florr.io">前往 Florr.io</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="https://github.com/AyuScript" target="_blank" class="footer-link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                    </svg>
+                    <span data-zh="GitHub" data-en="GitHub">GitHub</span>
+                </a>
+                <a href="mailto:whisper@silentwhisper.cc" class="footer-link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                    </svg>
+                    <span data-zh="联系我们" data-en="Contact">联系我们</span>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
